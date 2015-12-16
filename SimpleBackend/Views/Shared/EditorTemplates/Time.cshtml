@@ -1,0 +1,13 @@
+﻿@model object
+
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes.Add("class", "form-control");
+    htmlAttributes.Add("data-datetimepicker", "");
+    htmlAttributes.Add("data-date-autoclose", "true");
+    htmlAttributes.Add("data-date-format", "hh:ii");
+    htmlAttributes.Add("data-start-view", "day");
+    htmlAttributes.Add("data-show-meridian", true);
+}
+
+@Html.TextBox("", Model, ViewData.ModelMetadata.DisplayFormatString, htmlAttributes)

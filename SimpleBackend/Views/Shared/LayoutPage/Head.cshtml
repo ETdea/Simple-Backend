@@ -1,5 +1,5 @@
 ﻿@{
-    var title = "SB Admin 2 - Bootstrap Admin Theme";
+    var title = "後台管理系統";
 
     if (!string.IsNullOrEmpty(ViewBag.Title))
     {
@@ -13,19 +13,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="/favicon.ico" />
 <title>@title</title>
 
 
 
 <!-- Bootstrap Core CSS -->
-@Styles.Render(StyleName.Bootstrap)
+@Styles.Render(StyleName.Bundle.Bootstrap)
 
 <!-- Custom CSS, Timeline CSS, MetisMenu CSS  -->
-@Styles.Render(StyleName.SbAdmin2)
+@Styles.Render(StyleName.Bundle.SbAdmin2)
 
 <!-- Custom Fonts -->
-@Styles.Render(StyleName.FontAwesome)
+@Styles.Render(StyleName.Bundle.FontAwesome)
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

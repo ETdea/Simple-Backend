@@ -1,0 +1,14 @@
+﻿@model object
+
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes.Add("class", "form-control");
+    htmlAttributes.Add("data-datetimepicker", "");
+    htmlAttributes.Add("data-date-autoclose", "true");
+    htmlAttributes.Add("data-date-format", "yyyy/mm/dd hh:ii");
+}
+
+@Html.TextBox("", Model, ViewData.ModelMetadata.DisplayFormatString, htmlAttributes)
+@*<span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+</span>*@

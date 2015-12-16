@@ -2,34 +2,34 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// 組件的一般資訊是由下列的屬性集 
-// 控制。變更這些屬性值可修改與組件關聯的
-// 資訊。
-[assembly: AssemblyTitle("SBadmin2")]
+// General Information about an assembly is controlled through the following
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("SimpleBackend")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SBadmin2")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("SimpleBackend")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// 將 ComVisible 設定為 false 會使得這個組件中的型別 
-// 對 COM 元件而言為不可見。如果您需要從 COM 存取此組件中 
-// 的型別，請在該型別上將 ComVisible 屬性設定為 true。
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-// 下列 GUID 為專案公開 (Expose) 至 COM 時所要使用的 typelib ID
-[assembly: Guid("1ba73c6b-f434-4170-9df8-e95192fe4beb")]
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("bb056c28-97ab-47e7-b356-cb7575165ed3")]
 
-// 組件的版本資訊是由下列四項值構成:
+// Version information for an assembly consists of the following four values:
 //
-//      主要版本
-//      次要版本 
-//      組建編號
-//      修訂編號
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
 //
-// 您可以指定所有的值，也可以依照以下的方式，使用 '*' 將修訂和組建編號 
-// 指定為預設值:
+// You can specify all the values or you can default the Revision and Build Numbers
+// by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

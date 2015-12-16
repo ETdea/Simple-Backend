@@ -1,0 +1,10 @@
+﻿@model bool?
+
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+
+    var isChecked = Model.HasValue ? Model.Value : false;
+
+    @Html.CheckBox("", isChecked, htmlAttributes)
+}
+

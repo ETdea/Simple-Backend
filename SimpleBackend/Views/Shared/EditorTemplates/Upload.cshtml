@@ -1,0 +1,15 @@
+﻿@model object
+
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes.Add("type", "file");
+
+    if (ViewData.ModelMetadata.ModelType == typeof(HttpPostedFileBase[]))
+    {
+        htmlAttributes.Add("multiple", null);   
+    }
+}
+
+@Html.TextBox("", null, htmlAttributes)
+
+

@@ -27,12 +27,24 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    static readonly HelpPageClass s_HelpPage = new HelpPageClass();
+    public static HelpPageClass HelpPage { get { return s_HelpPage; } }
+    public static SimpleBackend.Controllers.AccountController Account = new SimpleBackend.Controllers.T4MVC_AccountController();
+    public static SimpleBackend.Controllers.BaseController Base = new SimpleBackend.Controllers.T4MVC_BaseController();
     public static SimpleBackend.Controllers.DemoController Demo = new SimpleBackend.Controllers.T4MVC_DemoController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
+    public static T4MVC.UserController User = new T4MVC.UserController();
 }
 
 namespace T4MVC
 {
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class HelpPageClass
+    {
+        public readonly string Name = "HelpPage";
+        public SimpleBackend.Areas.HelpPage.Controllers.HelpController Help = new SimpleBackend.Areas.HelpPage.Controllers.T4MVC_HelpController();
+        public T4MVC.HelpPage.SharedController Shared = new T4MVC.HelpPage.SharedController();
+    }
 }
 
 namespace T4MVC
@@ -72,10 +84,46 @@ namespace Links
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
         public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class ETdea {
+            private const string URLPATH = "~/Scripts/ETdea";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string AutoClone_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoClone.min.js") ? Url("AutoClone.min.js") : Url("AutoClone.js");
+            public static readonly string AutoFill_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoFill.min.js") ? Url("AutoFill.min.js") : Url("AutoFill.js");
+            public static readonly string AutoHistory_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoHistory.min.js") ? Url("AutoHistory.min.js") : Url("AutoHistory.js");
+            public static readonly string AutoImg_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoImg.min.js") ? Url("AutoImg.min.js") : Url("AutoImg.js");
+            public static readonly string AutoModal_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoModal.min.js") ? Url("AutoModal.min.js") : Url("AutoModal.js");
+            public static readonly string AutoRemove_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoRemove.min.js") ? Url("AutoRemove.min.js") : Url("AutoRemove.js");
+            public static readonly string AutoStorage_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoStorage.min.js") ? Url("AutoStorage.min.js") : Url("AutoStorage.js");
+            public static readonly string AutoSubmit_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoSubmit.min.js") ? Url("AutoSubmit.min.js") : Url("AutoSubmit.js");
+            public static readonly string ETDea_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ETDea.min.js") ? Url("ETDea.min.js") : Url("ETDea.js");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class plugins {
+                private const string URLPATH = "~/Scripts/ETdea/plugins";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string AutoDatatable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoDatatable.min.js") ? Url("AutoDatatable.min.js") : Url("AutoDatatable.js");
+                public static readonly string AutoDateTimePicker_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoDateTimePicker.min.js") ? Url("AutoDateTimePicker.min.js") : Url("AutoDateTimePicker.js");
+                public static readonly string AutoSummernote_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AutoSummernote.min.js") ? Url("AutoSummernote.min.js") : Url("AutoSummernote.js");
+            }
+        
+            public static readonly string Sortable_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Sortable.min.js") ? Url("Sortable.min.js") : Url("Sortable.js");
+        }
+    
         public static readonly string jquery_2_1_4_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.1.4.intellisense.min.js") ? Url("jquery-2.1.4.intellisense.min.js") : Url("jquery-2.1.4.intellisense.js");
         public static readonly string jquery_2_1_4_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.1.4.min.js") ? Url("jquery-2.1.4.min.js") : Url("jquery-2.1.4.js");
         public static readonly string jquery_2_1_4_min_js = Url("jquery-2.1.4.min.js");
         public static readonly string jquery_2_1_4_min_map = Url("jquery-2.1.4.min.map");
+        public static readonly string jquery_ui_1_9_0_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui-1.9.0.min.js") ? Url("jquery-ui-1.9.0.min.js") : Url("jquery-ui-1.9.0.js");
+        public static readonly string jquery_ui_1_9_0_min_js = Url("jquery-ui-1.9.0.min.js");
+        public static readonly string jquery_unobtrusive_ajax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.unobtrusive-ajax.min.js") ? Url("jquery.unobtrusive-ajax.min.js") : Url("jquery.unobtrusive-ajax.js");
+        public static readonly string jquery_unobtrusive_ajax_min_js = Url("jquery.unobtrusive-ajax.min.js");
+        public static readonly string jquery_validate_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate-vsdoc.min.js") ? Url("jquery.validate-vsdoc.min.js") : Url("jquery.validate-vsdoc.js");
+        public static readonly string jquery_validate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.min.js") ? Url("jquery.validate.min.js") : Url("jquery.validate.js");
+        public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
+        public static readonly string jquery_validate_unobtrusive_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.unobtrusive.min.js") ? Url("jquery.validate.unobtrusive.min.js") : Url("jquery.validate.unobtrusive.js");
+        public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class plugins {
             private const string URLPATH = "~/Scripts/plugins";
@@ -125,6 +173,83 @@ namespace Links
         }
     
         public static readonly string sb_admin_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/sb-admin-2.min.js") ? Url("sb-admin-2.min.js") : Url("sb-admin-2.js");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class smalot_datetimepicker {
+            private const string URLPATH = "~/Scripts/smalot-datetimepicker";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string bootstrap_datetimepicker_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.min.js") ? Url("bootstrap-datetimepicker.min.js") : Url("bootstrap-datetimepicker.js");
+            public static readonly string bootstrap_datetimepicker_min_js = Url("bootstrap-datetimepicker.min.js");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class locales {
+                private const string URLPATH = "~/Scripts/smalot-datetimepicker/locales";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string bootstrap_datetimepicker_ar_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ar.min.js") ? Url("bootstrap-datetimepicker.ar.min.js") : Url("bootstrap-datetimepicker.ar.js");
+                public static readonly string bootstrap_datetimepicker_bg_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.bg.min.js") ? Url("bootstrap-datetimepicker.bg.min.js") : Url("bootstrap-datetimepicker.bg.js");
+                public static readonly string bootstrap_datetimepicker_ca_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ca.min.js") ? Url("bootstrap-datetimepicker.ca.min.js") : Url("bootstrap-datetimepicker.ca.js");
+                public static readonly string bootstrap_datetimepicker_cs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.cs.min.js") ? Url("bootstrap-datetimepicker.cs.min.js") : Url("bootstrap-datetimepicker.cs.js");
+                public static readonly string bootstrap_datetimepicker_da_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.da.min.js") ? Url("bootstrap-datetimepicker.da.min.js") : Url("bootstrap-datetimepicker.da.js");
+                public static readonly string bootstrap_datetimepicker_de_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.de.min.js") ? Url("bootstrap-datetimepicker.de.min.js") : Url("bootstrap-datetimepicker.de.js");
+                public static readonly string bootstrap_datetimepicker_ee_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ee.min.js") ? Url("bootstrap-datetimepicker.ee.min.js") : Url("bootstrap-datetimepicker.ee.js");
+                public static readonly string bootstrap_datetimepicker_el_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.el.min.js") ? Url("bootstrap-datetimepicker.el.min.js") : Url("bootstrap-datetimepicker.el.js");
+                public static readonly string bootstrap_datetimepicker_es_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.es.min.js") ? Url("bootstrap-datetimepicker.es.min.js") : Url("bootstrap-datetimepicker.es.js");
+                public static readonly string bootstrap_datetimepicker_fi_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.fi.min.js") ? Url("bootstrap-datetimepicker.fi.min.js") : Url("bootstrap-datetimepicker.fi.js");
+                public static readonly string bootstrap_datetimepicker_fr_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.fr.min.js") ? Url("bootstrap-datetimepicker.fr.min.js") : Url("bootstrap-datetimepicker.fr.js");
+                public static readonly string bootstrap_datetimepicker_he_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.he.min.js") ? Url("bootstrap-datetimepicker.he.min.js") : Url("bootstrap-datetimepicker.he.js");
+                public static readonly string bootstrap_datetimepicker_hr_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.hr.min.js") ? Url("bootstrap-datetimepicker.hr.min.js") : Url("bootstrap-datetimepicker.hr.js");
+                public static readonly string bootstrap_datetimepicker_hu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.hu.min.js") ? Url("bootstrap-datetimepicker.hu.min.js") : Url("bootstrap-datetimepicker.hu.js");
+                public static readonly string bootstrap_datetimepicker_id_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.id.min.js") ? Url("bootstrap-datetimepicker.id.min.js") : Url("bootstrap-datetimepicker.id.js");
+                public static readonly string bootstrap_datetimepicker_is_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.is.min.js") ? Url("bootstrap-datetimepicker.is.min.js") : Url("bootstrap-datetimepicker.is.js");
+                public static readonly string bootstrap_datetimepicker_it_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.it.min.js") ? Url("bootstrap-datetimepicker.it.min.js") : Url("bootstrap-datetimepicker.it.js");
+                public static readonly string bootstrap_datetimepicker_ja_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ja.min.js") ? Url("bootstrap-datetimepicker.ja.min.js") : Url("bootstrap-datetimepicker.ja.js");
+                public static readonly string bootstrap_datetimepicker_ko_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ko.min.js") ? Url("bootstrap-datetimepicker.ko.min.js") : Url("bootstrap-datetimepicker.ko.js");
+                public static readonly string bootstrap_datetimepicker_lt_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.lt.min.js") ? Url("bootstrap-datetimepicker.lt.min.js") : Url("bootstrap-datetimepicker.lt.js");
+                public static readonly string bootstrap_datetimepicker_lv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.lv.min.js") ? Url("bootstrap-datetimepicker.lv.min.js") : Url("bootstrap-datetimepicker.lv.js");
+                public static readonly string bootstrap_datetimepicker_ms_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ms.min.js") ? Url("bootstrap-datetimepicker.ms.min.js") : Url("bootstrap-datetimepicker.ms.js");
+                public static readonly string bootstrap_datetimepicker_nb_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.nb.min.js") ? Url("bootstrap-datetimepicker.nb.min.js") : Url("bootstrap-datetimepicker.nb.js");
+                public static readonly string bootstrap_datetimepicker_nl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.nl.min.js") ? Url("bootstrap-datetimepicker.nl.min.js") : Url("bootstrap-datetimepicker.nl.js");
+                public static readonly string bootstrap_datetimepicker_no_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.no.min.js") ? Url("bootstrap-datetimepicker.no.min.js") : Url("bootstrap-datetimepicker.no.js");
+                public static readonly string bootstrap_datetimepicker_pl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.pl.min.js") ? Url("bootstrap-datetimepicker.pl.min.js") : Url("bootstrap-datetimepicker.pl.js");
+                public static readonly string bootstrap_datetimepicker_pt_BR_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.pt-BR.min.js") ? Url("bootstrap-datetimepicker.pt-BR.min.js") : Url("bootstrap-datetimepicker.pt-BR.js");
+                public static readonly string bootstrap_datetimepicker_pt_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.pt.min.js") ? Url("bootstrap-datetimepicker.pt.min.js") : Url("bootstrap-datetimepicker.pt.js");
+                public static readonly string bootstrap_datetimepicker_ro_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ro.min.js") ? Url("bootstrap-datetimepicker.ro.min.js") : Url("bootstrap-datetimepicker.ro.js");
+                public static readonly string bootstrap_datetimepicker_rs_latin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.rs-latin.min.js") ? Url("bootstrap-datetimepicker.rs-latin.min.js") : Url("bootstrap-datetimepicker.rs-latin.js");
+                public static readonly string bootstrap_datetimepicker_rs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.rs.min.js") ? Url("bootstrap-datetimepicker.rs.min.js") : Url("bootstrap-datetimepicker.rs.js");
+                public static readonly string bootstrap_datetimepicker_ru_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ru.min.js") ? Url("bootstrap-datetimepicker.ru.min.js") : Url("bootstrap-datetimepicker.ru.js");
+                public static readonly string bootstrap_datetimepicker_sk_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.sk.min.js") ? Url("bootstrap-datetimepicker.sk.min.js") : Url("bootstrap-datetimepicker.sk.js");
+                public static readonly string bootstrap_datetimepicker_sl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.sl.min.js") ? Url("bootstrap-datetimepicker.sl.min.js") : Url("bootstrap-datetimepicker.sl.js");
+                public static readonly string bootstrap_datetimepicker_sv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.sv.min.js") ? Url("bootstrap-datetimepicker.sv.min.js") : Url("bootstrap-datetimepicker.sv.js");
+                public static readonly string bootstrap_datetimepicker_sw_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.sw.min.js") ? Url("bootstrap-datetimepicker.sw.min.js") : Url("bootstrap-datetimepicker.sw.js");
+                public static readonly string bootstrap_datetimepicker_th_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.th.min.js") ? Url("bootstrap-datetimepicker.th.min.js") : Url("bootstrap-datetimepicker.th.js");
+                public static readonly string bootstrap_datetimepicker_tr_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.tr.min.js") ? Url("bootstrap-datetimepicker.tr.min.js") : Url("bootstrap-datetimepicker.tr.js");
+                public static readonly string bootstrap_datetimepicker_ua_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.ua.min.js") ? Url("bootstrap-datetimepicker.ua.min.js") : Url("bootstrap-datetimepicker.ua.js");
+                public static readonly string bootstrap_datetimepicker_uk_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.uk.min.js") ? Url("bootstrap-datetimepicker.uk.min.js") : Url("bootstrap-datetimepicker.uk.js");
+                public static readonly string bootstrap_datetimepicker_zh_CN_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.zh-CN.min.js") ? Url("bootstrap-datetimepicker.zh-CN.min.js") : Url("bootstrap-datetimepicker.zh-CN.js");
+                public static readonly string bootstrap_datetimepicker_zh_TW_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-datetimepicker.zh-TW.min.js") ? Url("bootstrap-datetimepicker.zh-TW.min.js") : Url("bootstrap-datetimepicker.zh-TW.js");
+            }
+        
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class summernote {
+            private const string URLPATH = "~/Scripts/summernote";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class plugin {
+                private const string URLPATH = "~/Scripts/summernote/plugin";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string summernote_ext_hello_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/summernote-ext-hello.min.js") ? Url("summernote-ext-hello.min.js") : Url("summernote-ext-hello.js");
+                public static readonly string summernote_ext_hint_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/summernote-ext-hint.min.js") ? Url("summernote-ext-hint.min.js") : Url("summernote-ext-hint.js");
+                public static readonly string summernote_ext_video_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/summernote-ext-video.min.js") ? Url("summernote-ext-video.min.js") : Url("summernote-ext-video.js");
+            }
+        
+            public static readonly string summernote_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/summernote.min.js") ? Url("summernote.min.js") : Url("summernote.js");
+            public static readonly string summernote_min_js = Url("summernote.min.js");
+        }
+    
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -289,6 +414,31 @@ namespace Links
     {
         public static partial class Scripts 
         {
+            public static partial class ETdea 
+            {
+                public static partial class plugins 
+                {
+                    public static class Assets
+                    {
+                        public const string AutoDatatable_js = "~/Scripts/ETdea/plugins/AutoDatatable.js"; 
+                        public const string AutoDateTimePicker_js = "~/Scripts/ETdea/plugins/AutoDateTimePicker.js"; 
+                        public const string AutoSummernote_js = "~/Scripts/ETdea/plugins/AutoSummernote.js"; 
+                    }
+                }
+                public static class Assets
+                {
+                    public const string AutoClone_js = "~/Scripts/ETdea/AutoClone.js"; 
+                    public const string AutoFill_js = "~/Scripts/ETdea/AutoFill.js"; 
+                    public const string AutoHistory_js = "~/Scripts/ETdea/AutoHistory.js"; 
+                    public const string AutoImg_js = "~/Scripts/ETdea/AutoImg.js"; 
+                    public const string AutoModal_js = "~/Scripts/ETdea/AutoModal.js"; 
+                    public const string AutoRemove_js = "~/Scripts/ETdea/AutoRemove.js"; 
+                    public const string AutoStorage_js = "~/Scripts/ETdea/AutoStorage.js"; 
+                    public const string AutoSubmit_js = "~/Scripts/ETdea/AutoSubmit.js"; 
+                    public const string ETDea_js = "~/Scripts/ETdea/ETDea.js"; 
+                    public const string Sortable_js = "~/Scripts/ETdea/Sortable.js"; 
+                }
+            }
             public static partial class plugins 
             {
                 public static partial class dataTables 
@@ -332,6 +482,79 @@ namespace Links
                 {
                 }
             }
+            public static partial class smalot_datetimepicker 
+            {
+                public static partial class locales 
+                {
+                    public static class Assets
+                    {
+                        public const string bootstrap_datetimepicker_ar_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ar.js"; 
+                        public const string bootstrap_datetimepicker_bg_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.bg.js"; 
+                        public const string bootstrap_datetimepicker_ca_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ca.js"; 
+                        public const string bootstrap_datetimepicker_cs_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.cs.js"; 
+                        public const string bootstrap_datetimepicker_da_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.da.js"; 
+                        public const string bootstrap_datetimepicker_de_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.de.js"; 
+                        public const string bootstrap_datetimepicker_ee_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ee.js"; 
+                        public const string bootstrap_datetimepicker_el_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.el.js"; 
+                        public const string bootstrap_datetimepicker_es_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.es.js"; 
+                        public const string bootstrap_datetimepicker_fi_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.fi.js"; 
+                        public const string bootstrap_datetimepicker_fr_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.fr.js"; 
+                        public const string bootstrap_datetimepicker_he_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.he.js"; 
+                        public const string bootstrap_datetimepicker_hr_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.hr.js"; 
+                        public const string bootstrap_datetimepicker_hu_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.hu.js"; 
+                        public const string bootstrap_datetimepicker_id_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.id.js"; 
+                        public const string bootstrap_datetimepicker_is_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.is.js"; 
+                        public const string bootstrap_datetimepicker_it_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.it.js"; 
+                        public const string bootstrap_datetimepicker_ja_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ja.js"; 
+                        public const string bootstrap_datetimepicker_ko_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ko.js"; 
+                        public const string bootstrap_datetimepicker_lt_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.lt.js"; 
+                        public const string bootstrap_datetimepicker_lv_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.lv.js"; 
+                        public const string bootstrap_datetimepicker_ms_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ms.js"; 
+                        public const string bootstrap_datetimepicker_nb_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.nb.js"; 
+                        public const string bootstrap_datetimepicker_nl_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.nl.js"; 
+                        public const string bootstrap_datetimepicker_no_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.no.js"; 
+                        public const string bootstrap_datetimepicker_pl_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.pl.js"; 
+                        public const string bootstrap_datetimepicker_pt_BR_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.pt-BR.js"; 
+                        public const string bootstrap_datetimepicker_pt_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.pt.js"; 
+                        public const string bootstrap_datetimepicker_ro_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ro.js"; 
+                        public const string bootstrap_datetimepicker_rs_latin_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.rs-latin.js"; 
+                        public const string bootstrap_datetimepicker_rs_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.rs.js"; 
+                        public const string bootstrap_datetimepicker_ru_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ru.js"; 
+                        public const string bootstrap_datetimepicker_sk_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.sk.js"; 
+                        public const string bootstrap_datetimepicker_sl_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.sl.js"; 
+                        public const string bootstrap_datetimepicker_sv_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.sv.js"; 
+                        public const string bootstrap_datetimepicker_sw_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.sw.js"; 
+                        public const string bootstrap_datetimepicker_th_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.th.js"; 
+                        public const string bootstrap_datetimepicker_tr_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.tr.js"; 
+                        public const string bootstrap_datetimepicker_ua_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.ua.js"; 
+                        public const string bootstrap_datetimepicker_uk_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.uk.js"; 
+                        public const string bootstrap_datetimepicker_zh_CN_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"; 
+                        public const string bootstrap_datetimepicker_zh_TW_js = "~/Scripts/smalot-datetimepicker/locales/bootstrap-datetimepicker.zh-TW.js"; 
+                    }
+                }
+                public static class Assets
+                {
+                    public const string bootstrap_datetimepicker_js = "~/Scripts/smalot-datetimepicker/bootstrap-datetimepicker.js"; 
+                    public const string bootstrap_datetimepicker_min_js = "~/Scripts/smalot-datetimepicker/bootstrap-datetimepicker.min.js"; 
+                }
+            }
+            public static partial class summernote 
+            {
+                public static partial class plugin 
+                {
+                    public static class Assets
+                    {
+                        public const string summernote_ext_hello_js = "~/Scripts/summernote/plugin/summernote-ext-hello.js"; 
+                        public const string summernote_ext_hint_js = "~/Scripts/summernote/plugin/summernote-ext-hint.js"; 
+                        public const string summernote_ext_video_js = "~/Scripts/summernote/plugin/summernote-ext-video.js"; 
+                    }
+                }
+                public static class Assets
+                {
+                    public const string summernote_js = "~/Scripts/summernote/summernote.js"; 
+                    public const string summernote_min_js = "~/Scripts/summernote/summernote.min.js"; 
+                }
+            }
             public static class Assets
             {
                 public const string bootstrap_js = "~/Scripts/bootstrap.js"; 
@@ -339,6 +562,14 @@ namespace Links
                 public const string jquery_2_1_4_intellisense_js = "~/Scripts/jquery-2.1.4.intellisense.js"; 
                 public const string jquery_2_1_4_js = "~/Scripts/jquery-2.1.4.js"; 
                 public const string jquery_2_1_4_min_js = "~/Scripts/jquery-2.1.4.min.js"; 
+                public const string jquery_ui_1_9_0_js = "~/Scripts/jquery-ui-1.9.0.js"; 
+                public const string jquery_ui_1_9_0_min_js = "~/Scripts/jquery-ui-1.9.0.min.js"; 
+                public const string jquery_unobtrusive_ajax_js = "~/Scripts/jquery.unobtrusive-ajax.js"; 
+                public const string jquery_unobtrusive_ajax_min_js = "~/Scripts/jquery.unobtrusive-ajax.min.js"; 
+                public const string jquery_validate_js = "~/Scripts/jquery.validate.js"; 
+                public const string jquery_validate_min_js = "~/Scripts/jquery.validate.min.js"; 
+                public const string jquery_validate_unobtrusive_js = "~/Scripts/jquery.validate.unobtrusive.js"; 
+                public const string jquery_validate_unobtrusive_min_js = "~/Scripts/jquery.validate.unobtrusive.min.js"; 
                 public const string sb_admin_2_js = "~/Scripts/sb-admin-2.js"; 
             }
         }

@@ -1,0 +1,9 @@
+﻿@model MultiSelectList
+
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes.Add("class", "form-control");
+}
+
+@Html.ListBox("", Model, htmlAttributes)
+

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace SimpleBackend
 {
@@ -7,7 +6,9 @@ namespace SimpleBackend
     {
         private const string CSS_PATH = "~/Content/";
         private const string JS_PATH = "~/Scripts/";
+        private const string ALL_JS = "*.js";
 
+        #region source
         public struct Bootstrap
         {
             private const string CSS_PATH = BundleConfig.CSS_PATH + "bootstrap/";
@@ -16,12 +17,12 @@ namespace SimpleBackend
             public struct Css
             {
                 public const string VirtualPath = CSS_PATH + "bootstrap.css";
-                public const string CDN = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css";
+                public const string CDN = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css";
             }
             public struct Js
             {
                 public const string VirtualPath = JS_PATH + "bootstrap.js";
-                public const string CDN = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js";
+                public const string CDN = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js";
             }
         }
         public struct SbAdmin2
@@ -84,7 +85,7 @@ namespace SimpleBackend
                                 return new string[]{
                                         Rapheal.Js.VirtualPath,
                                         Js.VirtualPath,
-                                        Data.Js.VirtualPath          
+                                        Data.Js.VirtualPath
                                     };
                             }
                         }
@@ -179,7 +180,7 @@ namespace SimpleBackend
             public struct Css
             {
                 public const string VirtualPath = CSS_PATH + "font-awesome.min.css";
-                public const string CDN = "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css";
+                public const string CDN = "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css";
             }
 
         }
@@ -190,30 +191,166 @@ namespace SimpleBackend
             public struct Js
             {
                 public const string VirtualPath = JS_PATH + "jquery-{version}.js";
-                public const string CDN = "//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+                public const string CDN = "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
             }
 
         }
+        public struct Summernote
+        {
+            private const string CSS_PATH = BundleConfig.CSS_PATH;
+            private const string JS_PATH = BundleConfig.JS_PATH + "summernote/";
+
+            public struct Css
+            {
+                public const string VirtualPath = CSS_PATH + "summernote.css";
+            }
+            public struct Js
+            {
+                public const string VirtualPath = JS_PATH + "summernote.js";
+            }
+        }
+        public struct ETdea
+        {
+            public const string JSDirectory = BundleConfig.JS_PATH + "ETdea/";
+
+            public struct Js
+            {
+                public struct Plugins
+                {
+                    public const string Directory = ETdea.JSDirectory + "plugins/";
+
+                    public struct Datatabel
+                    {
+                        public const string VirtualPath = Directory + "AutoDatatable.js";
+                    }
+
+                    public struct Summernote
+                    {
+                        public const string VirtualPath = Directory + "AutoSummernote.js";
+                    }
+
+                    public struct DateTimePicker
+                    {
+                        public const string VirtualPath = Directory + "AutoDateTimePicker.js";
+                    }
+                }
+            }
+
+        }
+        public struct DataTable
+        {
+            private const string CSS_PATH = BundleConfig.CSS_PATH;
+            private const string JS_PATH = BundleConfig.JS_PATH;
+
+            public struct Css
+            {
+                public const string CDN = "//cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css";
+
+                public struct Bootstrap
+                {
+                    public const string CDN = "//cdn.datatables.net/r/bs/dt-1.10.9/datatables.min.css";
+                }
+            }
+            public struct Js
+            {
+                public const string CDN = "//cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js";
+
+                public struct Bootstrap
+                {
+                    public const string CDN = "//cdn.datatables.net/r/bs/dt-1.10.9/datatables.min.js";
+                }
+            }
+        }
+        public struct AJASUnobtrusive
+        {
+            private const string JS_PATH = BundleConfig.JS_PATH;
+
+            public struct Js
+            {
+                public const string VirtualPath = JS_PATH + "jquery.unobtrusive*";
+                public const string CDN = "//ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js";
+            }
+
+        }
+        public struct Validate
+        {
+            private const string JS_PATH = BundleConfig.JS_PATH;
+
+            public struct Js
+            {
+                public const string VirtualPath = JS_PATH + "jquery.validate*";
+                //public const string CDN = "//ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js";
+            }
+
+        }
+        public struct DateTimePicker
+        {
+            private const string JSDirectory = BundleConfig.JS_PATH + "smalot-datetimepicker/";
+            private const string CSSDirectory = BundleConfig.CSS_PATH + "smalot-datetimepicker/";
+
+            public struct Js
+            {
+                public const string VirtualPath = JSDirectory + "bootstrap-datetimepicker.js";
+            }
+            public struct Css
+            {
+                public const string VirtualPath = CSSDirectory + "bootstrap-datetimepicker.css";
+            }
+
+        }
+        #endregion
 
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.UseCdn = true;
             BundleTable.EnableOptimizations = true;
 
-            bundles.Add(new ScriptBundle(ScriptName.JQuery, JQuery.Js.CDN).Include(JQuery.Js.VirtualPath));
-            bundles.Add(new ScriptBundle(ScriptName.Bootstrap, Bootstrap.Js.CDN).Include(Bootstrap.Js.VirtualPath));
-            bundles.Add(new ScriptBundle(ScriptName.Flot).Include(SbAdmin2.Plugin.Flot.Js.All));
-            bundles.Add(new ScriptBundle(ScriptName.Morris).Include(SbAdmin2.Plugin.Morris.Js.All));
-            bundles.Add(new ScriptBundle(ScriptName.SbAdmin2).Include(
+            #region DataTable
+            //bundles.Add(new ScriptBundle(ScriptName.Bundle.DataTable, DataTable.Js.CDN).Include(ScriptName.Bundle.ETdeaDataTable));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.DataTableBootstrap, DataTable.Js.Bootstrap.CDN).Include(ETdea.Js.Plugins.Datatabel.VirtualPath));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.ETdeaDataTable).Include(ETdea.Js.Plugins.Datatabel.VirtualPath));
+
+            //bundles.Add(new StyleBundle(StyleName.Bundle.DataTable, DataTable.Css.CDN));
+            bundles.Add(new StyleBundle(StyleName.Bundle.DataTableBootstrap, DataTable.Css.Bootstrap.CDN));
+            #endregion
+
+            #region Summernote
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.Summernote).Include(
+                                Summernote.Js.VirtualPath,
+                                ETdea.Js.Plugins.Summernote.VirtualPath
+                                ));
+
+            bundles.Add(new StyleBundle(StyleName.Bundle.Summernote).Include(Summernote.Css.VirtualPath));
+            #endregion
+
+            #region DateTimePicker
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.DateTimePicker).Include(
+                                DateTimePicker.Js.VirtualPath,
+                                ETdea.Js.Plugins.DateTimePicker.VirtualPath
+                                ));
+
+            bundles.Add(new StyleBundle(StyleName.Bundle.DateTimePicker).Include(DateTimePicker.Css.VirtualPath));
+            #endregion
+
+
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.Validate).Include(Validate.Js.VirtualPath));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.AJASUnobtrusive).Include(AJASUnobtrusive.Js.VirtualPath));
+
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.ETdea).IncludeDirectory(ETdea.JSDirectory, ALL_JS));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.JQuery, JQuery.Js.CDN).Include(JQuery.Js.VirtualPath));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.Bootstrap, Bootstrap.Js.CDN).Include(Bootstrap.Js.VirtualPath));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.Flot).Include(SbAdmin2.Plugin.Flot.Js.All));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.Morris).Include(SbAdmin2.Plugin.Morris.Js.All));
+            bundles.Add(new ScriptBundle(ScriptName.Bundle.SbAdmin2).Include(
                                 SbAdmin2.Plugin.MetisMenu.Js.VirtualPath,
                                 SbAdmin2.Js.VirtualPath
                                 ));
 
-            bundles.Add(new StyleBundle(StyleName.Morris).Include(SbAdmin2.Plugin.Morris.Css.VirtualPath));
-            bundles.Add(new StyleBundle(StyleName.SocialButtons).Include(SbAdmin2.Plugin.SocialButtons.Css.VirtualPath));
-            bundles.Add(new StyleBundle(StyleName.Bootstrap, Bootstrap.Css.CDN).Include(Bootstrap.Css.VirtualPath));
-            bundles.Add(new StyleBundle(StyleName.FontAwesome, FontAwesome.Css.CDN).Include(FontAwesome.Css.VirtualPath));
-            bundles.Add(new StyleBundle(StyleName.SbAdmin2).Include(
+            bundles.Add(new StyleBundle(StyleName.Bundle.Morris).Include(SbAdmin2.Plugin.Morris.Css.VirtualPath));
+            bundles.Add(new StyleBundle(StyleName.Bundle.SocialButtons).Include(SbAdmin2.Plugin.SocialButtons.Css.VirtualPath));
+            bundles.Add(new StyleBundle(StyleName.Bundle.Bootstrap, Bootstrap.Css.CDN).Include(Bootstrap.Css.VirtualPath));
+            bundles.Add(new StyleBundle(StyleName.Bundle.FontAwesome, FontAwesome.Css.CDN).Include(FontAwesome.Css.VirtualPath));
+            bundles.Add(new StyleBundle(StyleName.Bundle.SbAdmin2).Include(
                         SbAdmin2.Plugin.MetisMenu.Css.VirtualPath,
                         SbAdmin2.Plugin.TimeLine.Css.VirtualPath,
                         SbAdmin2.Css.VirtualPath

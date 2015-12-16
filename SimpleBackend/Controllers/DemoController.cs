@@ -2,6 +2,7 @@
 
 namespace SimpleBackend.Controllers
 {
+    [Authorize]
     public partial class DemoController : Controller
     {
         public virtual ActionResult Dashboard()

@@ -1,0 +1,10 @@
+﻿@model object
+
+@{ 
+    if(Model is DateTime)
+    {
+        var time = (DateTime)Model;
+       
+        <text>@time.ToString("mm:ss")</text>
+    }
+}

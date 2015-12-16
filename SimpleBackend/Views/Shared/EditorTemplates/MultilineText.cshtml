@@ -1,0 +1,9 @@
+﻿@model string
+
+@{
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes.Add("class", "form-control");
+    htmlAttributes.Add("placeholder", Html.DisplayNameForModel());
+}
+
+@Html.TextArea("", Model, htmlAttributes)

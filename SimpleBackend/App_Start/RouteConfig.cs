@@ -12,7 +12,7 @@ namespace SimpleBackend
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Demo", action = "Login", id = UrlParameter.Optional }
+                defaults: new { controller = MVC.Demo.Name, action = MVC.Demo.ActionNames.Dashboard, id = UrlParameter.Optional }
             );
         }
     }

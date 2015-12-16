@@ -16,14 +16,15 @@
     @RenderBody()
 
     <!-- jQuery -->
-    @Scripts.Render(ScriptName.JQuery)
+    @Scripts.Render(ScriptName.Bundle.JQuery)
 
     <!-- Bootstrap Core JavaScript -->
-    @Scripts.Render(ScriptName.Bootstrap)
+    @Scripts.Render(ScriptName.Bundle.Bootstrap)
 
     <!-- Metis Menu Plugin JavaScript, Custom Theme JavaScript -->
-    @Scripts.Render(ScriptName.SbAdmin2)
+    @Scripts.Render(ScriptName.Bundle.SbAdmin2)
 
+    @Scripts.Render(ScriptName.Bundle.ETdea)
 
     @RenderSection("scripts", required: false)
 

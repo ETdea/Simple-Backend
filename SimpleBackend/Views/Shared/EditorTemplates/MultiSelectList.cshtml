@@ -1,0 +1,9 @@
+﻿@model MultiSelectList
+
+@{
+    var Project = Model;
+    var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+    htmlAttributes.Add("class", "form-control");
+}
+
+@Html.DropDownList(ViewBag.Name as string, Project, ViewBag.OptionLabel as string, htmlAttributes)

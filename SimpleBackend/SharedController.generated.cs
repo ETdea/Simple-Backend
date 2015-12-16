@@ -49,6 +49,8 @@ namespace T4MVC
             public partial class _DisplayTemplatesClass
             {
                 public readonly string CanonicalHelperModel = "CanonicalHelperModel";
+                public readonly string Check = "Check";
+                public readonly string ImageUrl = "ImageUrl";
                 public readonly string MenuHelperModel = "MenuHelperModel";
                 public readonly string MetaRobotsHelperModel = "MetaRobotsHelperModel";
                 public readonly string SBAdmin2MenuHelperModel = "SBAdmin2MenuHelperModel";
@@ -59,6 +61,27 @@ namespace T4MVC
                 public readonly string SiteMapNodeModelList = "SiteMapNodeModelList";
                 public readonly string SiteMapPathHelperModel = "SiteMapPathHelperModel";
                 public readonly string SiteMapTitleHelperModel = "SiteMapTitleHelperModel";
+                public readonly string Time = "Time";
+            }
+            static readonly _EditorTemplatesClass s_EditorTemplates = new _EditorTemplatesClass();
+            public _EditorTemplatesClass EditorTemplates { get { return s_EditorTemplates; } }
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public partial class _EditorTemplatesClass
+            {
+                public readonly string Boolean = "Boolean";
+                public readonly string Date = "Date";
+                public readonly string DateTime = "DateTime";
+                public readonly string EmailAddress = "EmailAddress";
+                public readonly string Enum = "Enum";
+                public readonly string Html = "Html";
+                public readonly string ImageUrl = "ImageUrl";
+                public readonly string List = "List";
+                public readonly string MultilineText = "MultilineText";
+                public readonly string MultiSelectList = "MultiSelectList";
+                public readonly string Password = "Password";
+                public readonly string Text = "Text";
+                public readonly string Time = "Time";
+                public readonly string Upload = "Upload";
             }
             static readonly _LayoutPageClass s_LayoutPage = new _LayoutPageClass();
             public _LayoutPageClass LayoutPage { get { return s_LayoutPage; } }

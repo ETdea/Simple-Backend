@@ -1,0 +1,7 @@
+﻿@model object
+@{
+    var defaultPhoto = @Url.Content("~/Content/no_image.png");
+    var photo = Model ?? string.Empty;
+}
+
+<img src="@photo" data-default="@defaultPhoto"><img>
