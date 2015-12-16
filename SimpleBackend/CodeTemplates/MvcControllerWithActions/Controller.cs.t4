@@ -1,0 +1,133 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension="cs" #>
+<#@ import namespace="System" #>
+<#@ parameter type="System.String" name="ControllerName" #>
+<#@ parameter type="System.String" name="ControllerRootName" #>
+<#@ parameter type="System.String" name="Namespace" #>
+<#@ parameter type="System.String" name="AreaName" #>
+using AXP.Backend.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+
+namespace AXP.Backend.ViewModels
+{
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
+    public class <#= ControllerRootName #>EditViewModel : ICast
+    {
+        public int Id { get; set; }
+
+        [DisplayName("名稱")]
+        [DataType(DataType.Text)]
+        public string Name { get; set; }
+    }
+
+    public class <#= ControllerRootName #>ListViewModel : ICast
+    {
+        [DataType("Check")]
+        public int Id { get; set; }
+
+        [DisplayName("名稱")]
+        [DataType(DataType.Text)]
+        public string Name { get; set; }
+
+        static public explicit operator <#= ControllerRootName #>ListViewModel(<#= ControllerRootName #>EditViewModel source)
+        {
+            var model = source.To<<#= ControllerRootName #>ListViewModel>();
+            return model;
+        }
+        internal static IEnumerable<<#= ControllerRootName #>ListViewModel> Parser(IEnumerable<<#= ControllerRootName #>EditViewModel> source)
+        {
+            return source.Select(p => (<#= ControllerRootName #>ListViewModel)p);
+        }
+    }
+}
+
+namespace <#= Namespace #>
+{
+    public class <#= ControllerName #> : ControllerBase
+    {
+        static private List<<#= ControllerRootName #>EditViewModel> list = Enumerable.Range(1, 10).Select(p => new <#= ControllerRootName #>EditViewModel()
+        {
+            Id = p,
+            Name = $"名稱{p}"
+        }).ToList();
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(AreaName)) ? ("/" + AreaName) : String.Empty #>/<#= ControllerRootName #>/
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult List()
+        {
+            var viewModel = <#= ControllerRootName #>ListViewModel.Parser(list);
+
+            return PartialView(viewModel);
+        }
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(AreaName)) ? ("/" + AreaName) : String.Empty #>/<#= ControllerRootName #>/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(AreaName)) ? ("/" + AreaName) : String.Empty #>/<#= ControllerRootName #>/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(<#= ControllerRootName #>EditViewModel source)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            list.Add(source);
+
+            return RedirectToAction("Index");
+        }
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(AreaName)) ? ("/" + AreaName) : String.Empty #>/<#= ControllerRootName #>/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var viewModel = list.Single(p => p.Id.Equals(id));
+
+            return View(viewModel);
+        }
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(AreaName)) ? ("/" + AreaName) : String.Empty #>/<#= ControllerRootName #>/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public virtual ActionResult Edit(<#= ControllerRootName #>EditViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            list.RemoveAll(p => p.Id.Equals(model.Id));
+            list.Add(model);
+
+            return RedirectToAction("Index");
+        }
+		
+        //
+        // POST: <#= (!String.IsNullOrEmpty(AreaName)) ? ("/" + AreaName) : String.Empty #>/<#= ControllerRootName #>/Delete
+        [HttpPost]
+        public virtual ActionResult Delete(IEnumerable<int> id)
+        {
+            list.RemoveAll(p => id.Contains(p.Id));
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+    }
+}

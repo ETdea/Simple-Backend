@@ -30,6 +30,11 @@ namespace SimpleBackend.Controllers
             return View();
         }
 
+        public virtual ActionResult Icons()
+        {
+            return View();
+        }
+
         public virtual ActionResult Grid()
         {
             return View();

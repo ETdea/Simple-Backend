@@ -43,18 +43,18 @@ namespace SimpleBackend.ViewModels
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "舊密碼")]//Current password
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} 至少要 {2} 個字元.", MinimumLength = 5)]//The {0} must be at least {2} characters long.
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "新密碼")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "確認新密碼")]
+        [Compare("NewPassword", ErrorMessage = "{1} 和 {0} 不相同.")]//The new password and confirmation password do not match.
         public string ConfirmPassword { get; set; }
     }
 

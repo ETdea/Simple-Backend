@@ -20,6 +20,7 @@
       <mvcSiteMapNode title="Buttons" action="Buttons"/>
       <mvcSiteMapNode title="Notifications" action="Notifications" />
       <mvcSiteMapNode title="Typography" action="Typography"/>
+      <mvcSiteMapNode title="Icons" action="Icons"/>
       <mvcSiteMapNode title="Grid" action="Grid"/>
     </mvcSiteMapNode>
     

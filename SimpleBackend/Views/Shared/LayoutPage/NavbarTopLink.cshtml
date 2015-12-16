@@ -2,11 +2,6 @@
 
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-    {
-        @Html.AntiForgeryToken()
-    }
-
     <!-- /.dropdown -->
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -14,10 +9,10 @@
         </a>
         <ul class="dropdown-menu dropdown-user">
             <li>
-                @*<a href="@Url.Action(MVC.Account.ChangePassword())"><i class="fa fa-gear fa-fw"></i>更改密碼</a>*@
+                <a href="@Url.Action(MVC.User.ChangePassword())"><i class="fa fa-lock fa-fw"></i> 變更密碼</a>
             </li>
             <li>
-                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out fa-fw"></i>登出</a>
+                <a href="@Url.Action(MVC.Account.LogOff())"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
             </li>
         </ul>
         <!-- /.dropdown-user -->

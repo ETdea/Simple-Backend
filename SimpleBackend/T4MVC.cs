@@ -32,8 +32,8 @@ public static partial class MVC
     public static SimpleBackend.Controllers.AccountController Account = new SimpleBackend.Controllers.T4MVC_AccountController();
     public static SimpleBackend.Controllers.BaseController Base = new SimpleBackend.Controllers.T4MVC_BaseController();
     public static SimpleBackend.Controllers.DemoController Demo = new SimpleBackend.Controllers.T4MVC_DemoController();
+    public static SimpleBackend.Controllers.UserController User = new SimpleBackend.Controllers.T4MVC_UserController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
-    public static T4MVC.UserController User = new T4MVC.UserController();
 }
 
 namespace T4MVC

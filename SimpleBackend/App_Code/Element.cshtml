@@ -2,12 +2,12 @@
 @using System.Web.Mvc.Html;
 @using System.Web.Mvc.Ajax;
 
-@helper SubmitButton(string text = "保存")
+@helper SubmitButton(string text = "保存", string submit = "")
 {
 var Html = ((System.Web.Mvc.WebViewPage)WebPageContext.Current.Page).Html;
 
     @Html.Raw(
-                Html.SubmitButton(text, new { @class = "btn btn-primary", data_submit = string.Empty }).ToString().Replace("保存", "<i class=\"fa fa-save\"></i>")
+                Html.SubmitButton(text, new { @class = "btn btn-primary", data_submit = submit }).ToString().Replace("保存", "<i class=\"fa fa-save\"></i>")
     )
 }
 
