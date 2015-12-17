@@ -77,18 +77,42 @@ namespace SimpleBackend.ViewModels
     }
 
 
-    public class UserEditViewModel : SetPasswordViewModel, ICast
+    public class UserCreateViewModel : UserEditViewModel, ICast
+    {
+        [Required]
+        [StringLength(100, ErrorMessage = "{0} 至少要 {2} 個字元.", MinimumLength = 5)]//The {0} must be at least {2} characters long.
+        [DataType(DataType.Password)]
+        [Display(Name = "新密碼")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "確認新密碼")]
+        [Compare("NewPassword", ErrorMessage = "{1} 和 {0} 不相同.")]//The new password and confirmation password do not match.
+        public string ConfirmPassword { get; set; }
+        
+        static public explicit operator User(UserCreateViewModel source)
+        {
+            var model = source.To<User>();
+            return model;
+        }
+
+    }
+
+    public class UserEditViewModel : ICast
     {
         public int Id { get; set; }
-        
+
+        [Required]
         [DisplayName("帳號")]
         [DataType(DataType.Text)]
         public string UserName { get; set; }
 
+        [Required]
         [DisplayName("電子郵件")]
         [DataType(DataType.Text)]
         public string Email { get; set; }
 
+        [Required]
         [DisplayName("電話號碼")]
         [DataType(DataType.Text)]
         public string PhoneNumber { get; set; }

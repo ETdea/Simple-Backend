@@ -38,7 +38,17 @@ namespace T4MVC
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _Add = "_Add";
+                public readonly string Create = "Create";
+                public readonly string Edit = "Edit";
+                public readonly string Index = "Index";
+                public readonly string List = "List";
             }
+            public readonly string _Add = "~/Views/Default/_Add.cshtml";
+            public readonly string Create = "~/Views/Default/Create.cshtml";
+            public readonly string Edit = "~/Views/Default/Edit.cshtml";
+            public readonly string Index = "~/Views/Default/Index.cshtml";
+            public readonly string List = "~/Views/Default/List.cshtml";
         }
     }
 

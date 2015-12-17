@@ -1,22 +1,15 @@
-﻿using Microsoft.AspNet.Identity.Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 
 namespace SimpleBackend.Models
 {
-    public class DbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
+    public class DbInitializer : System.Data.Entity.DropCreateDatabaseAlways<MyDbContext>
     {
         static public List<Func<object>> seeds = new List<Func<object>>();
 
         protected override void Seed(MyDbContext context)
         {
-            foreach(var seedFunc in seeds)
-            {
-                var seed = seedFunc();
-
-                context.Set(seed.GetType()).Add(seed);
-            }
+            seeds.ForEach(seed => seed());
             
             context.Configuration.ValidateOnSaveEnabled = false;
             base.Seed(context);

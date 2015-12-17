@@ -148,15 +148,15 @@ namespace SimpleBackend.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string _Add = "_Add";
                 public readonly string ChangePassword = "ChangePassword";
                 public readonly string Create = "Create";
+                public readonly string Edit = "Edit";
                 public readonly string Index = "Index";
                 public readonly string List = "List";
             }
-            public readonly string _Add = "~/Views/User/_Add.cshtml";
             public readonly string ChangePassword = "~/Views/User/ChangePassword.cshtml";
             public readonly string Create = "~/Views/User/Create.cshtml";
+            public readonly string Edit = "~/Views/User/Edit.cshtml";
             public readonly string Index = "~/Views/User/Index.cshtml";
             public readonly string List = "~/Views/User/List.cshtml";
         }
@@ -224,10 +224,10 @@ namespace SimpleBackend.Controllers
         }
 
         [NonAction]
-        partial void CreateOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, SimpleBackend.ViewModels.UserEditViewModel source);
+        partial void CreateOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, SimpleBackend.ViewModels.UserCreateViewModel source);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Create(SimpleBackend.ViewModels.UserEditViewModel source)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Create(SimpleBackend.ViewModels.UserCreateViewModel source)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Create);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "source", source);
@@ -251,12 +251,12 @@ namespace SimpleBackend.Controllers
         partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, SimpleBackend.ViewModels.UserEditViewModel model);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Edit(SimpleBackend.ViewModels.UserEditViewModel model)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Edit(SimpleBackend.ViewModels.UserEditViewModel model)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
             EditOverride(callInfo, model);
-            return callInfo;
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
 
         [NonAction]

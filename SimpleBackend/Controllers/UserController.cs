@@ -90,14 +90,20 @@ namespace SimpleBackend.Controllers
         // POST: /User/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual async Task<ActionResult> Create(UserEditViewModel source)
+        public virtual async Task<ActionResult> Create(UserCreateViewModel source)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            await UserManager.CreateAsync((User)source, source.NewPassword);
+            var result = await UserManager.CreateAsync((User)source, source.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", result.Errors.First());
+                return View();
+            }
 
             return RedirectToAction("Index");
         }
@@ -115,15 +121,20 @@ namespace SimpleBackend.Controllers
         // POST: /User/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual ActionResult Edit(UserEditViewModel model)
+        public virtual async Task<ActionResult> Edit(UserEditViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            UserManager.PartialUpdateAsync((User)model);
+            var result = await UserManager.PartialUpdateAsync((User)model);
 
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", result.Errors.First());
+                return View();
+            }
             return RedirectToAction("Index");
         }
 

@@ -312,7 +312,6 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
-    <Content Include="Views\User\_Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -655,6 +654,7 @@
     <Content Include="Views\Default\Create.cshtml" />
     <Content Include="Views\Default\Edit.cshtml" />
     <Content Include="Views\Default\_Add.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
