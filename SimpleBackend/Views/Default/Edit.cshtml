@@ -1,0 +1,13 @@
+﻿@model SimpleBackend.ViewModels.DefaultEditViewModel
+
+@section Scripts{
+    @Scripts.Render(ScriptName.Bundle.Validate)
+}
+
+@{
+    var pageParam = Html.PageParam();
+    pageParam.IsEdit = true;
+
+    Html.RenderPartial("_Add");
+} 
+

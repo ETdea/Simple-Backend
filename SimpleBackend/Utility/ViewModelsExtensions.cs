@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace SimpleBackend.ViewModels
 {
     static public class Extensions
@@ -8,6 +10,14 @@ namespace SimpleBackend.ViewModels
         {
             foreach (var item in source.GetType().GetProperties())
             {
+                try
+                {
+                    item.GetValue(source);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
                 var value = item.GetValue(source);
 
                 if (value == null)
@@ -42,8 +52,15 @@ namespace SimpleBackend.Areas.App.Models
         {
             foreach (var item in source.GetType().GetProperties())
             {
+                try
+                {
+                    item.GetValue(source);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
                 var value = item.GetValue(source);
-
                 if (value == null)
                     continue;
 

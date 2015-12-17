@@ -88,7 +88,7 @@ if (ReferenceScriptLibraries) {
                         @using (Html.BeginForm(Html.PageParam().ActionName, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             @Html.AntiForgeryToken()
-                            @Html.ValidationSummary()
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
 
                             <ul class="nav nav-tabs">
                                 <li class="active">

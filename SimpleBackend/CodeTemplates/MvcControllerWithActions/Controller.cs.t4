@@ -5,13 +5,14 @@
 <#@ parameter type="System.String" name="ControllerRootName" #>
 <#@ parameter type="System.String" name="Namespace" #>
 <#@ parameter type="System.String" name="AreaName" #>
-using AXP.Backend.ViewModels;
+<# string defaultNamespace = Namespace.Replace(".Controllers",""); #>
+using <#= defaultNamespace #>.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-namespace AXP.Backend.ViewModels
+namespace <#= defaultNamespace#>.ViewModels
 {
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
@@ -48,7 +49,7 @@ namespace AXP.Backend.ViewModels
 
 namespace <#= Namespace #>
 {
-    public class <#= ControllerName #> : ControllerBase
+    public class <#= ControllerName #> : BaseController
     {
         static private List<<#= ControllerRootName #>EditViewModel> list = Enumerable.Range(1, 10).Select(p => new <#= ControllerRootName #>EditViewModel()
         {

@@ -25,6 +25,11 @@ namespace SimpleBackend.Controllers
         [AllowAnonymous]
         public virtual ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToLocal(returnUrl);
+            }
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

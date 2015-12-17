@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SimpleBackend.ViewModels.UserListViewModel>
+
+<thead>
+    <tr>
+        <th></th>
+        <th data-search="UserName-search">
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th data-search="Email-search">
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th data-search="PhoneNumber-search">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th data-search="Disable-search">
+            @Html.DisplayNameFor(model => model.Disable)
+        </th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+@if (Model.HasItem())
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disable)
+            </td>
+            <td class="text-center">
+                @Element.EditButtonLink(item.Id)
+            </td>
+        </tr>
+    }
+}
+</tbody>

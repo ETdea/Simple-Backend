@@ -17,19 +17,31 @@ namespace SimpleBackend.Stores
         public override Task CreateAsync(User user)
         {
             user.Id = Guid.NewGuid().ToInt32();
+            user.Created = DateTime.UtcNow;
+            user.Updated = user.Created;
 
             return base.CreateAsync(user);
         }
 
-        public IEnumerable<User> FindAll()
+        public IEnumerable<User> Find()
         {
-            return Context.Set<User>();
+            return table;
         }
 
         public void DeleteAll(IEnumerable<int> ids)
         {
             table.RemoveRange(table.Where(p => ids.Contains(p.Id)));
             Context.SaveChanges();
+        }
+
+        public override Task UpdateAsync(User user)
+        {
+            if(user != null)
+            {
+                user.Updated = DateTime.UtcNow;
+            }
+
+            return base.UpdateAsync(user);
         }
     }
 }

@@ -263,6 +263,9 @@
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DefaultController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="DemoController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -305,6 +308,10 @@
     <Compile Include="Utility\ViewModelsExtensions.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\UserViewModels.cs" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\_Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -642,10 +649,14 @@
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Demo\Icons.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\List.cshtml" />
+    <Content Include="Views\Default\Create.cshtml" />
+    <Content Include="Views\Default\Edit.cshtml" />
+    <Content Include="Views\Default\_Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

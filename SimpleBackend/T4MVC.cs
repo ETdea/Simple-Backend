@@ -33,6 +33,7 @@ public static partial class MVC
     public static SimpleBackend.Controllers.BaseController Base = new SimpleBackend.Controllers.T4MVC_BaseController();
     public static SimpleBackend.Controllers.DemoController Demo = new SimpleBackend.Controllers.T4MVC_DemoController();
     public static SimpleBackend.Controllers.UserController User = new SimpleBackend.Controllers.T4MVC_UserController();
+    public static T4MVC.DefaultController Default = new T4MVC.DefaultController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 

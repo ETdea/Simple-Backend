@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.WebPages;
+using System.Linq;
 
 namespace SimpleBackend.Managers
 {
@@ -23,7 +24,7 @@ namespace SimpleBackend.Managers
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class UserManager : UserManager<User, int>
     {
-        private UserStore store { get { return Store as UserStore; } }
+        private UserStore UserStore { get { return Store as UserStore; } }
 
         public UserManager(IUserStore<User, int> store)
             : base(store)
@@ -77,9 +78,9 @@ namespace SimpleBackend.Managers
             return manager;
         }
 
-        public void RemoveAll(IEnumerable<int> id)
+        public void Remove(IEnumerable<int> id)
         {
-            store.DeleteAll(id);
+            UserStore.DeleteAll(id);
         }
 
         public override async Task<System.Security.Claims.ClaimsIdentity> CreateIdentityAsync(User user, string authenticationType)
@@ -91,23 +92,29 @@ namespace SimpleBackend.Managers
             return identity;
         }
 
-        public IEnumerable<User> Find()
+        public IEnumerable<User> FindForNotRemoved(IEnumerable<User> users = null)
         {
-            return store.FindAll();
-        }
-
-        public override async Task<IdentityResult> UpdateAsync(User source)
-        {
-            var model = await FindByIdAsync(source.Id);
-
-            if (!source.PasswordHash.IsEmpty())
+            if (!users.HasItem())
             {
-                model.PasswordHash = source.PasswordHash;
+                users = UserStore.Find();
             }
 
-            model.UserName = source.UserName;
-            model.Email = source.Email;
-            model.Enabled = source.Enabled;
+            return users.Where(p => !p.Removed);
+        }
+
+        /// <summary>
+        /// 只更新以下欄位
+        /// Email, Disabled, PhoneNumber
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task<IdentityResult> PartialUpdateAsync(User user)
+        {
+            var model = await FindByIdAsync(user.Id);
+
+            model.Email = user.Email;
+            model.Disabled = user.Disabled;
+            model.PhoneNumber = user.PhoneNumber;
 
             return await base.UpdateAsync(model);
         }

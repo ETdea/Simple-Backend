@@ -1,12 +1,13 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
+﻿using Microsoft.AspNet.Identity;
 using SimpleBackend.Managers;
+using SimpleBackend.Models;
 using SimpleBackend.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using System;
 
 namespace SimpleBackend.Controllers
 {
@@ -61,6 +62,79 @@ namespace SimpleBackend.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        //
+        // GET: /User/
+        public virtual ActionResult Index()
+        {
+            return View();
+        }
+
+        [ChildActionOnly]
+        public virtual ActionResult List()
+        {
+            var viewModel = UserListViewModel.Parser(UserManager.FindForNotRemoved().Where(p => !p.Id.IsNaught()));
+
+            return PartialView(viewModel);
+        }
+
+        //
+        // GET: /User/Create
+        public virtual ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /User/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public virtual async Task<ActionResult> Create(UserEditViewModel source)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            await UserManager.CreateAsync((User)source, source.NewPassword);
+
+            return RedirectToAction("Index");
+        }
+
+        //
+        // GET: /User/Edit/5
+        public virtual async Task<ActionResult> Edit(int id)
+        {
+            var viewModel = (UserEditViewModel)await UserManager.FindByIdAsync(id);
+
+            return View(viewModel);
+        }
+
+        //
+        // POST: /User/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public virtual ActionResult Edit(UserEditViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            UserManager.PartialUpdateAsync((User)model);
+
+            return RedirectToAction("Index");
+        }
+
+        //
+        // POST: /User/Delete
+        [HttpPost]
+        public virtual ActionResult Delete(IEnumerable<int> id)
+        {
+            UserManager.Remove(id);
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
         ////

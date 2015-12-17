@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SimpleBackend.ViewModels.DefaultListViewModel>
+
+<thead>
+    <tr>
+        <th></th>
+        <th data-search="Nick-search">
+            @Html.DisplayNameFor(model => model.Nick)
+        </th>
+        <th data-search="Tel-search">
+            @Html.DisplayNameFor(model => model.Tel)
+        </th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nick)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel)
+        </td>
+        <td class="text-center">
+            @Element.EditButtonLink(item.Id)
+        </td>
+        </tr>
+    }
+</tbody>

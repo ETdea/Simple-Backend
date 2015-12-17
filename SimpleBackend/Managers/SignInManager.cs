@@ -29,7 +29,7 @@ namespace SimpleBackend.Managers
 
         public override async Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
         {
-            if (!(await UserManager.FindByNameAsync(userName))?.Enabled ?? false)
+            if ((await UserManager.FindByNameAsync(userName))?.Disabled ?? true)
             {
                 return SignInStatus.Failure;
             }

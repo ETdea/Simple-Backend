@@ -80,6 +80,7 @@ namespace SimpleBackend.Controllers
             public readonly string Buttons = "Buttons";
             public readonly string Flot = "Flot";
             public readonly string Forms = "Forms";
+            public readonly string Icons = "Icons";
             public readonly string Grid = "Grid";
             public readonly string Login = "Login";
             public readonly string Morris = "Morris";
@@ -97,6 +98,7 @@ namespace SimpleBackend.Controllers
             public const string Buttons = "Buttons";
             public const string Flot = "Flot";
             public const string Forms = "Forms";
+            public const string Icons = "Icons";
             public const string Grid = "Grid";
             public const string Login = "Login";
             public const string Morris = "Morris";
@@ -123,6 +125,7 @@ namespace SimpleBackend.Controllers
                 public readonly string Flot = "Flot";
                 public readonly string Forms = "Forms";
                 public readonly string Grid = "Grid";
+                public readonly string Icons = "Icons";
                 public readonly string Login = "Login";
                 public readonly string Morris = "Morris";
                 public readonly string Notifications = "Notifications";
@@ -136,6 +139,7 @@ namespace SimpleBackend.Controllers
             public readonly string Flot = "~/Views/Demo/Flot.cshtml";
             public readonly string Forms = "~/Views/Demo/Forms.cshtml";
             public readonly string Grid = "~/Views/Demo/Grid.cshtml";
+            public readonly string Icons = "~/Views/Demo/Icons.cshtml";
             public readonly string Login = "~/Views/Demo/Login.cshtml";
             public readonly string Morris = "~/Views/Demo/Morris.cshtml";
             public readonly string Notifications = "~/Views/Demo/Notifications.cshtml";
@@ -202,6 +206,17 @@ namespace SimpleBackend.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Forms);
             FormsOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void IconsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Icons()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Icons);
+            IconsOverride(callInfo);
             return callInfo;
         }
 

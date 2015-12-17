@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,10 +14,25 @@ namespace SimpleBackend.Models
         public override int Id { get; set; }
 
         /// <summary>
-        /// 啟用
+        /// 停用
         /// </summary>
-        public bool Enabled { get; set; }
-        
+        public bool Disabled { get; set; }
+
+        /// <summary>
+        /// 已移除
+        /// </summary>
+        public bool Removed { get; set; }
+
+        /// <summary>
+        /// 建立時間
+        /// </summary>
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// 異動時間
+        /// </summary>
+        public DateTime Updated { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, int> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
