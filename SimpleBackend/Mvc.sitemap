@@ -42,6 +42,7 @@
     </mvcSiteMapNode>
 
     <mvcSiteMapNode title="使用者管理" controller="User" action="Index" icon="fa fa-group fa-fw"/>
+    <mvcSiteMapNode title="系統設定" controller="SystemSettings" action="Index" icon="fa fa-group fa-fw"/>
 
     <!--測試Multi-Level用-->
     <!--<mvcSiteMapNode title="Multi-Level Dropdown" action="null" controller="Demo"  icon="fa fa-sitemap fa-fw">

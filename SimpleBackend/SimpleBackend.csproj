@@ -263,6 +263,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\SystemSettingsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DefaultController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -308,6 +309,7 @@
     <Compile Include="Utility\HtmlHelperExtensions.cs" />
     <Compile Include="Utility\ViewModelsExtensions.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\SystemSettingsViewModels.cs" />
     <Compile Include="ViewModels\UserViewModels.cs" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\List.cshtml" />
@@ -655,6 +657,7 @@
     <Content Include="Views\Default\Edit.cshtml" />
     <Content Include="Views\Default\_Add.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\SystemSettings\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

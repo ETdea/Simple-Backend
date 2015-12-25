@@ -103,7 +103,7 @@ namespace SimpleBackend.ViewModels
         public int Id { get; set; }
 
         [Required]
-        [DisplayName("帳號")]
+        [DisplayName("帳號：")]
         [DataType(DataType.Text)]
         public string UserName { get; set; }
 
